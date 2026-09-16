@@ -17,4 +17,4 @@ outputs/
 .coverage
 htmlcov/
 node_modules/
-.openai/*.local.*
+.openai/
