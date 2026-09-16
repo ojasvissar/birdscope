@@ -12,7 +12,7 @@
 
 **Decision:** retain Cornell’s `ebirdst` R interface for data acquisition and product loading; use `terra` and `sf` for spatial computation; use Python/pandas/scikit-learn for experiment and reporting logic.
 
-**Reason:** this follows provider-supported data access and demonstrates the two scientific environments named in the role. The boundary between languages is documented CSV/GeoJSON/GeoTIFF/Parquet, rather than a fragile embedded interpreter bridge.
+**Reason:** this follows provider-supported data access and uses each language where its ecosystem is strongest. The boundary between languages is documented CSV/GeoJSON/GeoTIFF/Parquet, rather than a fragile embedded interpreter bridge.
 
 **Tradeoff:** two runtime environments need version control and installation. The R lock and Python pins record the working environment. We avoid changing system libraries; a new-machine setup restores to `.R-library` and `.venv`.
 
@@ -56,7 +56,7 @@
 
 **Decision:** authored HTML/CSS/ES modules, local GeoJSON and SVG charts. No frontend build pipeline or runtime API server.
 
-**Reason:** scientific compute does not need to run during an interview click. The entire delivered site is small and can run offline through any static HTTP server. No browser requests depend on public tiles, fonts or map keys. Computation can later run on a cluster while product serving remains simple.
+**Reason:** scientific compute does not need to run on a page view. The entire delivered site is small and can run offline through any static HTTP server. No browser requests depend on public tiles, fonts or map keys. Computation can later run on a cluster while product serving remains simple.
 
 **Tradeoff:** the application is a fixed study with precomputed results. It has no arbitrary geometry uploads, live data refresh, job queue, authentication implementation, editing database or general query API. A static host’s access policy is separate from the app’s code. User-selected exports filter existing products, not newly executed scientific jobs.
 

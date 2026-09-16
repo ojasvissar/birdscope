@@ -9,7 +9,6 @@ This is the interpretive companion to the other documents. It does not restate t
 |---|---|
 | `docs/METHODS.md` | The formal scientific contract and formulas |
 | `docs/ARCHITECTURE.md` | Why the system is built this way (ADRs) |
-| `docs/ROLE_ALIGNMENT.md` | What is demonstrated vs. what remains for real delivery |
 | `docs/REVIEW.md` | Acceptance checklist and manual verification steps |
 | **This file** | What you are looking at on screen, and how to read it |
 
