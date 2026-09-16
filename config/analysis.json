@@ -1,0 +1,20 @@
+{
+  "seed": 20260916,
+  "species": "yebsap-example",
+  "region": "Michigan",
+  "status_version": 2023,
+  "trends_version": 2022,
+  "resolution_km": 27,
+  "target_species": "Collared Kingfisher",
+  "max_duration_minutes": 300,
+  "max_distance_km": 5,
+  "max_observers": 10,
+  "spatial_block_degrees": 0.05,
+  "cv_folds": 5,
+  "bootstrap_replicates": 500,
+  "regions": [
+    {"id": "north", "name": "Northern band", "south": 45.5, "north": 49},
+    {"id": "central", "name": "Central band", "south": 44, "north": 45.5},
+    {"id": "south", "name": "Southern band", "south": 41, "north": 44}
+  ]
+}

@@ -1,0 +1,5 @@
+region,annual_percent,lower,upper,folds,direction,cells
+all,-0.8438511,-1.0604222,-0.2033046,100,declining,156
+central,-0.1933807,-0.5570842,0.4169982,100,uncertain,52
+north,-1.2000730,-1.6858674,-0.5044667,100,declining,68
+south,0.5949726,-0.0370465,1.0237406,100,uncertain,50
