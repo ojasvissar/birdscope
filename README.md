@@ -2,7 +2,7 @@
 
 **Reproducible bird abundance, population trends, and checklist model evaluation using official eBird sample datasets.**
 
-BirdScope turns official eBird sample data into geospatial analyses, regional biological data products, a model comparison, standalone scientific figures, and an interactive frontend. The dashboard uses a minimal © BirdScope wordmark, an eBird-inspired forest-green palette, and text navigation across five analysis views.
+BirdScope turns official eBird sample data into geospatial analyses, regional biological data products, a model comparison, standalone scientific figures, and an interactive frontend. The dashboard uses a minimal © BirdScope wordmark, an eBird-inspired forest-green palette, and sidebar navigation across five analysis views.
 
 The underlying observations and published model estimates are real. The analysis code and derived products are this project’s contribution. The sample datasets support regional exploration and a small checklist modeling experiment; they do not reproduce Cornell’s production models or establish performance at full eBird scale. No simulated biological values are used in the dashboard.
 

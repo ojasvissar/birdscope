@@ -30,11 +30,13 @@ async function boot(){
 
 function render(){
  $('#app').innerHTML=`<a class="skip" href="#main">Skip to analysis</a>
- <header class="site-header"><div class="masthead"><a href="#explorer" class="brand" aria-label="BirdScope home">© BirdScope</a><div class="masthead-context">Avian data & conservation</div><a class="text-link masthead-link" href="#methods">About the data ${icon('arrow',16)}</a></div>
- <nav class="main-nav" aria-label="Main navigation">${Object.entries(labels).map(([key,label])=>`<a href="#${key}" class="nav-link ${state.view===key?'active':''}" ${state.view===key?'aria-current="page"':''}>${label}</a>`).join('')}</nav></header>
- <div class="workspace"><div class="topbar"><div class="breadcrumbs">eBird analysis <span>/</span> ${labels[state.view]}</div><span class="study-location">${state.view==='lab'?'Singapore · 2012':'Michigan, USA · 27 km'}</span></div>
+ <aside class="sidebar"><a href="#explorer" class="brand" aria-label="BirdScope home"><span class="brand-word"><span class="copyright">©</span><span class="brand-name"> BirdScope</span></span><span class="brand-sub">AVIAN DATA & CONSERVATION</span></a><div class="workspace-label">ANALYSIS WORKSPACE</div>
+ <nav aria-label="Main navigation">${Object.entries(labels).map(([key,label])=>`<a href="#${key}" class="nav-link ${state.view===key?'active':''}" ${state.view===key?'aria-current="page"':''}>${icon(key)}<span>${label}</span></a>`).join('')}</nav>
+ <div class="sidebar-study"><div class="mini-label">CURRENT VIEW</div><strong>${state.view==='lab'?'Singapore · 2012':'Michigan, USA'}</strong><p>${state.view==='lab'?'Checklist model evaluation<br>Collared Kingfisher':'Status 2023 · Trends 2022<br>Yellow-bellied Sapsucker'}</p><div class="side-rule"></div><span>Official eBird sample data</span><small>Reproducible regional analysis</small></div>
+ <div class="sidebar-bottom"><span>© ${new Date().getFullYear()} BirdScope</span><small>Methods and sources included</small></div></aside>
+ <div class="workspace"><header class="topbar"><div class="breadcrumbs">BirdScope <span>/</span> ${labels[state.view]}</div><div class="header-right"><span class="sample-badge">EBIRD SAMPLE DATA</span><a class="text-link" href="#methods">About the data ${icon('arrow',16)}</a></div></header>
  <main id="main" tabindex="-1">${({explorer:explorerView,trends:trendsView,lab:labView,products:productsView,methods:methodsView}[state.view])()}</main>
- <footer class="footer"><span>© ${new Date().getFullYear()} BirdScope</span><span>Data: eBird Status and Trends · Cornell Lab of Ornithology</span><a href="#methods">Sources & methods ${icon('external',14)}</a></footer></div><div class="toast" id="toast" role="status" hidden></div>`;
+ <footer class="footer"><span>Data: eBird Status and Trends · Cornell Lab of Ornithology</span><a href="#methods">Sources & methods ${icon('external',14)}</a></footer></div><div class="toast" id="toast" role="status" hidden></div>`;
  bind();
 }
 

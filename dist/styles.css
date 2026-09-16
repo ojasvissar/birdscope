@@ -23,23 +23,34 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .skip { position: fixed; top: -80px; left: 20px; padding: 12px 18px; background: white; z-index: 100; }
 .skip:focus { top: 15px; }
 
-/* Header and navigation */
-.site-header { background: white; border-top: 4px solid var(--green); border-bottom: 1px solid var(--border); }
-.masthead, .main-nav, .topbar, main, .footer { width: min(1480px, 100%); margin-inline: auto; }
-.masthead { display: flex; align-items: center; gap: 28px; padding: 22px 44px 18px; }
-.brand { color: var(--green); font-size: 1.9rem; font-weight: 600; line-height: 1.2; letter-spacing: -.065em; white-space: nowrap; }
-.brand:hover { color: var(--green-dark); }
-.masthead-context { border-left: 1px solid var(--border); padding-left: 27px; color: var(--muted); font-size: .875rem; }
-.masthead-link { margin-left: auto; }
-.main-nav { display: flex; gap: 34px; padding: 0 44px; overflow-x: auto; scrollbar-width: thin; }
-.nav-link { padding: 16px 0 17px; font-size: .9rem; font-weight: 500; color: #626d64; white-space: nowrap; border-bottom: 3px solid transparent; transition: color .15s, border-color .15s; }
-.nav-link:hover { color: var(--green); border-color: #b9dfbc; }
-.nav-link.active { color: var(--green); border-color: var(--green); font-weight: 650; }
-.workspace { min-width: 0; }
-.topbar { padding: 21px 44px 0; display: flex; justify-content: space-between; align-items: center; gap: 18px; color: #738074; font-size: .8rem; }
+/* Sidebar and workspace navigation */
+.sidebar { position: fixed; inset: 0 auto 0 0; z-index: 10; display: flex; width: 246px; flex-direction: column; padding: 30px 20px 24px; background: var(--green-dark); color: #f3f7f0; }
+.brand { display: flex; flex-direction: column; padding: 0 11px; margin-bottom: 48px; color: white; line-height: 1.2; white-space: nowrap; }
+.brand:hover { color: #cfebbf; }
+.brand-word { font-size: 1.8rem; font-weight: 600; letter-spacing: -.065em; }
+.copyright { color: #a8d58f; }
+.brand-sub { margin-top: 6px; color: #99b09e; font-size: .7rem; font-weight: 550; letter-spacing: .11em; }
+.workspace-label, .mini-label { color: #8ea395; font-size: .7rem; font-weight: 600; letter-spacing: .12em; }
+.workspace-label { margin: 0 12px 14px; }
+.sidebar nav { display: flex; flex-direction: column; gap: 6px; }
+.nav-link { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 11px 12px; border-radius: 5px; color: #b9c9bd; font-size: .875rem; font-weight: 500; white-space: nowrap; transition: color .15s, background .15s; }
+.nav-link:hover { color: white; background: #284530; }
+.nav-link.active { color: var(--green-dark); background: #cfebbf; font-weight: 650; }
+.sidebar-study { margin: auto 8px 32px; padding: 18px 15px; border: 1px solid #3c5542; border-radius: 6px; }
+.sidebar-study strong { display: block; margin: 10px 0 4px; font-size: .9rem; font-weight: 600; }
+.sidebar-study p { color: #aebfb2; font-size: .8rem; line-height: 1.7; }
+.side-rule { height: 1px; margin: 16px 0 12px; background: #3c5542; }
+.sidebar-study > span { display: block; color: #c3d2c5; font-size: .75rem; }
+.sidebar-study small { display: block; margin-top: 3px; color: #8fa293; font-size: .75rem; }
+.sidebar-bottom { padding: 0 10px; color: #bdcbbf; font-size: .75rem; }
+.sidebar-bottom small { display: block; margin-top: 4px; color: #849a89; font-size: .75rem; }
+.workspace { min-width: 0; min-height: 100vh; margin-left: 246px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 36px; gap: 20px; border-bottom: 1px solid var(--border); background: white; color: #738074; font-size: .8rem; }
 .breadcrumbs span { padding: 0 12px; color: #a5afa5; }
-.study-location { white-space: nowrap; }
-main { padding: 24px 44px 42px; outline: none; }
+.header-right { display: flex; align-items: center; gap: 24px; }
+.sample-badge { padding: 5px 9px; border: 1px solid #dce8d6; border-radius: 4px; background: #f1f6ed; color: #607454; font-size: .7rem; font-weight: 650; letter-spacing: .06em; }
+main, .footer { width: min(1480px, 100%); margin-inline: auto; }
+main { padding: 30px 36px 42px; outline: none; }
 .page-heading { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-bottom: 27px; }
 .eyebrow { color: var(--green); font-size: .75rem; letter-spacing: .11em; font-weight: 600; margin-bottom: 8px; }
 .lead { color: var(--muted); font-size: 1rem; margin-top: 9px; }
@@ -234,7 +245,14 @@ tbody tr:hover { background: #fafcf7; }
 .load-error p { margin: 18px 0; }
 
 @media (max-width: 1150px) {
-  .masthead, .main-nav, .topbar, main, .footer { padding-inline: 30px; }
+  .sidebar { width: 80px; padding: 27px 11px 22px; }
+  .brand { align-items: center; padding: 0; margin-bottom: 41px; }
+  .brand-name, .brand-sub, .workspace-label, .nav-link span, .sidebar-study, .sidebar-bottom { display: none; }
+  .brand-word { font-size: 2rem; }
+  .sidebar nav { gap: 9px; }
+  .nav-link { justify-content: center; padding: 12px; }
+  .workspace { margin-left: 80px; }
+  .topbar, main, .footer { padding-inline: 30px; }
   .explore-grid { grid-template-columns: minmax(0, 1.65fr) minmax(290px, 1fr); gap: 20px; }
   .panel-heading, .metric { padding: 20px; }
   .filterbar > div, .filterbar > label { padding-inline: 18px; }
@@ -246,9 +264,6 @@ tbody tr:hover { background: #fafcf7; }
   .product-grid { grid-template-columns: 285px minmax(0, 1fr); }
 }
 @media (max-width: 920px) {
-  .masthead { gap: 22px; }
-  .masthead-context { padding-left: 22px; }
-  .main-nav { gap: 26px; }
   .explore-grid, .two-col { grid-template-columns: minmax(0, 1fr); }
   .insight-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
   .source-note { grid-column: 1 / -1; }
@@ -267,14 +282,16 @@ tbody tr:hover { background: #fafcf7; }
   .science-callout > div { flex-basis: 80%; }
 }
 @media (max-width: 700px) {
-  .masthead { padding: 20px 22px 12px; }
-  .brand { font-size: 1.65rem; }
-  .masthead-context { display: none; }
-  .masthead-link { font-size: .8rem; }
-  .main-nav { padding-inline: 22px; gap: 25px; }
-  .nav-link { font-size: .875rem; padding-block: 14px 15px; }
-  .topbar { padding: 18px 22px 0; font-size: .75rem; }
-  .study-location { display: none; }
+  .sidebar { position: sticky; top: 0; width: 100%; height: 66px; flex-direction: row; align-items: center; justify-content: space-between; padding: 8px 18px; box-shadow: 0 1px 0 #314938; }
+  .brand { flex-direction: row; align-items: center; margin: 0; }
+  .brand-name { display: inline; }
+  .brand-word { font-size: 1.35rem; }
+  .sidebar nav { flex-direction: row; gap: 3px; }
+  .nav-link { min-height: 42px; padding: 10px; }
+  .nav-link svg { width: 18px; height: 18px; }
+  .workspace { margin-left: 0; }
+  .topbar { height: 50px; padding: 0 22px; font-size: .75rem; }
+  .header-right { display: none; }
   main { padding: 22px 22px 34px; }
   .page-heading { align-items: start; flex-direction: column; gap: 17px; margin-bottom: 23px; }
   .page-heading .button { padding: 9px 13px; }
@@ -298,8 +315,11 @@ tbody tr:hover { background: #fafcf7; }
   .footer > span:nth-child(2) { order: 3; flex-basis: 100%; }
 }
 @media (max-width: 480px) {
-  .masthead, .main-nav, .topbar { padding-inline: 18px; }
-  .main-nav { gap: 23px; }
+  .sidebar { padding-inline: 13px; }
+  .brand-name { display: none; }
+  .sidebar nav { gap: 1px; }
+  .nav-link { padding: 9px; }
+  .topbar { padding-inline: 18px; }
   main { padding-inline: 16px; }
   .page-heading { gap: 15px; }
   h1 { font-size: 1.85rem; }
@@ -337,7 +357,8 @@ tbody tr:hover { background: #fafcf7; }
   * { scroll-behavior: auto !important; transition: none !important; }
 }
 @media print {
-  .site-header, .topbar, .footer, .button, .filterbar, .play-button, .segmented { display: none; }
+  .sidebar, .topbar, .footer, .button, .filterbar, .play-button, .segmented { display: none; }
+  .workspace { margin-left: 0; }
   main { padding: 0; width: 100%; }
   .panel, .metric, .science-callout { break-inside: avoid; }
   .explore-grid, .two-col, .insight-stack { display: block; }
