@@ -23,7 +23,7 @@ export function color(v, max, diverging=false) {
     return `rgb(${a.map((x,i)=>Math.round(x+(b[i]-x)*t)).join(',')})`;
   }
   const t=Math.sqrt(Math.max(0,Math.min(v/max,1)));
-  const stops=[[231,244,211],[120,197,152],[33,142,119],[0,74,68]];
+  const stops=[[237,245,220],[161,212,133],[68,162,91],[28,85,48]];
   const at=Math.min(Math.floor(t*3),2), f=t*3-at;
   return `rgb(${stops[at].map((x,i)=>Math.round(x+(stops[at+1][i]-x)*f)).join(',')})`;
 }

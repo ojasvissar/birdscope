@@ -1,17 +1,17 @@
-# Fieldwork — eBird Conservation Workbench
+# BirdScope — eBird Conservation Workbench
 
-**An end-to-end biological data science portfolio project built for the Cornell Lab of Ornithology / CAPS eBird Status and Trends contractor role.**
+**Reproducible bird abundance, population trends, and checklist model evaluation using official eBird sample datasets.**
 
-Fieldwork turns official eBird teaching data into reproducible geospatial analyses, regional biological data products, a small feature experiment, standalone scientific figures, and an interactive frontend. It demonstrates the workflow across the role’s three phases: foundation, product development, and operational handoff.
+BirdScope turns official eBird sample data into geospatial analyses, regional biological data products, a model comparison, standalone scientific figures, and an interactive frontend. The dashboard uses a minimal © BirdScope wordmark, an eBird-inspired forest-green palette, and text navigation across five analysis views.
 
-**This is a completed teaching-scale prototype, not a claim to have reproduced Cornell’s production models, processed billions of observations, or completed a year of work.** The underlying observations and published model estimates are real. The analysis code and derived products are this project’s contribution. No simulated biological values are used in the dashboard.
+The underlying observations and published model estimates are real. The analysis code and derived products are this project’s contribution. The sample datasets support regional exploration and a small checklist modeling experiment; they do not reproduce Cornell’s production models or establish performance at full eBird scale. No simulated biological values are used in the dashboard.
 
-## Start here for the interview
+## Explore the project
 
-1. Read [the interview walkthrough](docs/INTERVIEW.md), especially the five-minute demonstration and the questions about uncertainty.
-2. Open the dashboard locally (instructions below). Start at **Species explorer**, then **Population trends**, **Experiment lab**, and **Data products**.
-3. Read the [architecture decisions](docs/ARCHITECTURE.md) and [scientific methods](docs/METHODS.md).
-4. Use the [role-to-project mapping and one-year roadmap](docs/ROLE_ALIGNMENT.md) to connect the demonstration to their actual needs.
+1. Open the dashboard locally (instructions below). Start at **Species explorer**, then **Population trends**, **Experiment lab**, and **Data products**.
+2. Read the [architecture decisions](docs/ARCHITECTURE.md) and [scientific methods](docs/METHODS.md).
+3. Review the [development roadmap and role mapping](docs/ROLE_ALIGNMENT.md).
+4. For presentation preparation, use the separate [interview walkthrough](docs/INTERVIEW.md).
 
 ### Open the already-built frontend — no installations or API keys
 
@@ -50,7 +50,7 @@ make test
 make serve
 ```
 
-Python versions are pinned in [requirements.txt](requirements.txt). The R dependency graph is pinned in [renv.lock](renv.lock), restored by `scripts/setup_R.R`. The supplied workspace’s `.venv` reused preinstalled system packages at those Python versions; the new-machine setup creates an isolated environment. A clean Linux installation has not been executed here. Compiling `sf`, `terra`, `units`, or `arrow` on a machine without binaries can require GDAL, GEOS, PROJ, UDUNITS2, a C++ toolchain, and additional build time. For the interview, use the already-built local dashboard rather than reinstalling packages.
+Python versions are pinned in [requirements.txt](requirements.txt). The R dependency graph is pinned in [renv.lock](renv.lock), restored by `scripts/setup_R.R`. The supplied workspace’s `.venv` reused preinstalled system packages at those Python versions; the new-machine setup creates an isolated environment. A clean Linux installation has not been executed here. Compiling `sf`, `terra`, `units`, or `arrow` on a machine without binaries can require GDAL, GEOS, PROJ, UDUNITS2, a C++ toolchain, and additional build time. The committed dashboard can be served without installing these analysis dependencies.
 
 After the initial download, `make pipeline` is offline. `make reproduce` combines fetch, computation and tests. Raw downloads are not committed; acquisition on another machine needs internet.
 
@@ -161,7 +161,7 @@ flowchart LR
 
 **Python owns experimental evaluation, tabular products and orchestration.** Functions have small, testable scientific contracts. pandas is convenient at this scale; DuckDB demonstrates a file-backed Parquet aggregation with numerical equivalence to the pandas result.
 
-**The frontend is dependency-free HTML/CSS/JavaScript.** It uses real GeoJSON geometry and SVG charts. No framework, tile server, map API key, application database or continuously running Python backend is required. This makes the interview demo portable and resilient offline. The map projection is a simple local equirectangular display with longitude scaled at 45°N; scientific area calculations happen upstream in equal-area coordinates.
+**The frontend is dependency-free HTML/CSS/JavaScript.** It uses real GeoJSON geometry and SVG charts. No framework, tile server, map API key, application database or continuously running Python backend is required. This keeps the dashboard portable and usable offline. The map projection is a simple local equirectangular display with longitude scaled at 45°N; scientific area calculations happen upstream in equal-area coordinates.
 
 **Published products and observational experiments stay separate.** Their target quantities, sampling processes, releases, spatial grids and limitations differ. A shared interface does not justify merging them into one training table.
 
