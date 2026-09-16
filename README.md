@@ -273,6 +273,10 @@ To adapt to a real collaborator request:
 
 Operational monitoring, distributed ingestion, scheduler integration, automatic stakeholder delivery and production authentication remain future work.
 
+## Acknowledgements
+
+The documentation and frontend in this repository were prepared with the help of Claude Code running Opus 5. The scientific decisions, data sources, and interpretations are my own.
+
 ## Data sources, attribution and reuse
 
 - **Status:** Fink et al., eBird Status and Trends, data version 2023; released 2025. Cornell Lab of Ornithology. [DOI: 10.2173/WZTW8903](https://doi.org/10.2173/WZTW8903).
