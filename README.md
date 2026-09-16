@@ -9,9 +9,10 @@ The underlying observations and published model estimates are real. The analysis
 ## Explore the project
 
 1. Open the dashboard locally (instructions below). Start at **Species explorer**, then **Population trends**, **Experiment lab**, and **Data products**.
-2. Read the [architecture decisions](docs/ARCHITECTURE.md) and [scientific methods](docs/METHODS.md).
-3. Review the [development roadmap and role mapping](docs/ROLE_ALIGNMENT.md).
-4. For presentation preparation, use the separate [interview walkthrough](docs/INTERVIEW.md).
+2. Read the [dashboard handbook](docs/DASHBOARD_HANDBOOK.md) — a view-by-view explanation of every concept, number, model and caveat on screen, and how the pipeline produces each one.
+3. Read the [architecture decisions](docs/ARCHITECTURE.md) and [scientific methods](docs/METHODS.md).
+4. Review the [development roadmap and role mapping](docs/ROLE_ALIGNMENT.md).
+5. For presentation preparation, use the separate [interview walkthrough](docs/INTERVIEW.md).
 
 ### Open the already-built frontend — no installations or API keys
 
@@ -236,7 +237,7 @@ outputs/                     Local reproducible intermediate and GIS outputs (ig
 tests/                       Scientific and frontend contracts
 .github/workflows/checks.yml  CI checks; source downloads not required
 hpc/analysis.slurm           Single-job cluster submission template
-docs/                        Methods, architecture, interview, role mapping and review guide
+docs/                        Dashboard handbook, methods, architecture, interview, role mapping and review guide
 ```
 
 Useful artifacts:
